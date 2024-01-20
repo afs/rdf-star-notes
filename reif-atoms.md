@@ -1,26 +1,27 @@
 # Proposal - atomic reification
 
-This is a reificiation propsoal.
+This is a reification semantics proposal.
 
 The agreed syntax applies in Turtle.
 
 The problems with triples for reification are:
 
-1. It is verbose in Turtle and N-Triples.
-2. It can be over-specificed (e.g. multiple rdf:subject)
-3. It can be under-specificed (e.g. no rdf:subject)
-4. Presence or absense of rdf:Statement is unclear leading to different SPARQL results.  
+1. Visually verbose (Turtle).
+2. Verbose number of triples (N-Triples).
+3. Over-specificed (e.g. multiple rdf:subject)
+4. Under-specificed (e.g. no rdf:subject)
+5. Presence or absence of rdf:Statement is unclear leading to different SPARQL results.  
    (De facto, it is omitted.)
-5. The reification triples may be split across parts of a document.
-6. If a large graph is split into multiple files of mnanageable size, it can be split across those files (and blank nodes for reification are broken).
+6. The reification triples may be split across parts of a document.
+7. If a large graph is split into multiple files of manageable size, it can be split across those files (and blank nodes for reification are broken).
 
-Agreed Turtle syntax hides some of these issues but not for N-triples, and not for SPARQL when thought as querying a triple table.
+The agreed Turtle syntax hides some of these issues (addresses 1, tends away from 3 and 4) but not for N-triples, and not for SPARQL when thought of as querying a triple table.
 
 ## General idea
 
 Introduce a unit "reification atom" that means the rdf:subject/rdf:predicate/rdf:object is not split.
 
-There is a syntax token "descriptor"; the name is choosen pro tem so that it does not presume too much.
+There is a syntax token "descriptor"; the name is choosen _pro tem_ so that it does not presume too much.
 
 It is distinct from 'triple' in the abstract syntax.
 
@@ -49,7 +50,7 @@ where descriptor is the syntax token (RDF term) for a reification atom.
 ## The idea - Formalism 1 - via interpretation
 
 Put "reification atom" as a resource into IR, the universe of I.
-Put interpretation of a "reification atom" into I.
+Put interpretation of a "descriptor" into I.
 
 It is "along side" the reification vocabulary. It provides the same capability, a named token for a triple, but in an atomic form.
 
