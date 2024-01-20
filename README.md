@@ -1,2 +1,4 @@
 # rdf-star-notes
-AFS workspace for RDF-star WG
+
+AFS workspace for RDF-star WG.
+
