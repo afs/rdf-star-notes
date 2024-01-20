@@ -13,27 +13,28 @@
 
 A _term_ is denoted by `r`, a _triple_ by `t`, and a _graph_ by `g`.  
 
-Given a _descriptor_ `r`, we denote the subject, predicate, object positions of `r` as `r.s`, `r.p`, `r.o`, respectively.  
-
 Given a _triple_ `t`, we denote the subject, predicate, object of `t` as `t.s`, `t.p`, `t.o`, respectively.  
+
+Given a _descriptor_ `r`, we denote the subject, predicate, object positions of `r` as `r.s`, `r.p`, `r.o`, respectively.  
 
 RDF 1.1 syntax is the above without the _descriptor_ category.
 
 ## Reification resource
 
-A "refication atom" is a resource into IR.
+A "reification atom" (type?) is a resource in IR.
 
-It is a relationship of arity 3, reif(s, p, o).  
+It is a relationship of arity 3, `reif(s, p, o)`.
 
-Other names "occurrence", ...
+Other posisble names include "occurrence", "occurrence type". (then "descriptor" can be "reif").
 
-"Naming", as in "named occurrence", is via a triple "N rdf:occurrenceOf Descriptor".
+"Naming", as in "named occurrence", token, is a resource denoted by the subject of triple "N rdf:occurrenceOf Descriptor".
+
 This is the parallel to named reification-as-token.
 
 ### Semantics
 
 An RDF-star simple interpretation `I` is a structure:
-<`IR`, `IP`, `IA`, `IS`, `IL`, `IT`, `IEXT`, `ID`>
+<`IR`, `IP`, `IA`, `IS`, `IL`, `ID`, `IEXT`>
 consisting of:
 
 1. A non-empty set `IR` of _resources_, called the domain or universe of `I`.
@@ -52,11 +53,20 @@ Given `I` and `A`, the function `[I+A](.)` is defined over _terms_, _triples_, a
 
 - `[I+A](r) = IS(r)`    if `r` is a _iri_
 - `[I+A](r) = IL(r)`    if `r` is a _literal_
-- `[I+A](r) = ID(reif([I+A](r.s), [I+A](r.p), [I+A](r.o)))` if `r` is a descriptor
 - `[I+A](r) = A(r)`     if `r` is a _BlankNode_
+- `[I+A](r) = ID(r)`    if `r` is a _descriptor_
 
-the elements of a descriptor denote the same resources as when used in triples.
-"descriptors" however are not "TRUE" (asserted).
+where
+`ID: d -> reif([I+A](d.s), [I+A](d.p), [I+A](d.o))`
+
+The components of a descriptor denote the same resources as when used in triples.
+"reification atom" however are not "TRUE" (asserted).
+
+<small><small><i>(
+need help on this part to make sure it is correctly expressed:
+We have defined the resource in IR for an atomic reification.
+A 'descriptor' (an element of the abstract syntax) maps to a 'reif', an element of the universe of I, by applying [I+A] to the components and translating the tuple name.
+)</i></small></small>
 
 #### Triples
 

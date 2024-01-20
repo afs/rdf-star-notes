@@ -21,7 +21,7 @@ The agreed Turtle syntax hides some of these issues (addresses 1, tends away fro
 
 Introduce a unit "reification atom" that means the rdf:subject/rdf:predicate/rdf:object is not split.
 
-There is a syntax token "descriptor"; the name is choosen _pro tem_ so that it does not presume too much.
+There is a syntax "descriptor"; the name is choosen _pro tem_ so that it does not presume too much.
 
 It is distinct from 'triple' in the abstract syntax.
 
@@ -39,13 +39,14 @@ It is distinct from 'triple' in the abstract syntax.
 Given a descriptor `x`, we denote the subject, predicate, object positions of `x` as `x.s`, `x.p`, `x.o`, respectively.  
 
 A _named occurrence_ is a resource associated with a "reification atom" via a triple.
+A named occurrence is a token of the reification atom (type).
 
 "named triple" is another possible name which may be more accessible to the general reader of RDF specs.
 
 ```
-    M rdf:occurrenceOf descriptor .
+    N rdf:occurrenceOf descriptor .
 ```
-where descriptor is the syntax token (RDF term) for a reification atom.
+where descriptor is the syntax element (RDF term) for a reification atom.
 
 ## The idea - Formalism 1 - via interpretation
 
@@ -54,13 +55,15 @@ Put interpretation of a "descriptor" into I.
 
 It is "along side" the reification vocabulary. It provides the same capability, a named token for a triple, but in an atomic form.
 
+Whether "reification atom" is "rdf:Statement", and the reification properties apply, is left open.
+
 ## The idea - Formalism 2 - via translation
 
 Translate "descriptor" into RDF 1.1 reification before interpretation.
 
 Semantic intepretation is unchanged from RDF 1.1.
 
-This triple translation does show through into SPARQL meaning it SPARQL is not "querying the abstracts syntax". More in the detailed description.
+This triple translation does show through into SPARQL. It cn be seen that SPARQL is not "querying the abstract syntax" for BGP matching. More in the detailed description.
 
 ## Concrete Syntax Implications
 
@@ -82,7 +85,7 @@ SPARQL works on the abstract syntax.
 
 For data:
 ```
-   _:b rdf:occurrenceOf <<(:s :p :o )>> .
+   _:b rdf:occurrenceOf <<( :s :p :o )>> .
 ```
 the query
 ```
