@@ -44,9 +44,9 @@ consisting of:
 1. A non-empty set `IR` of _resources_, called the domain or universe of `I`.
 2. A set `IP`, called the set of _properties_ of `I`.
 3. A set `IA`, called the set of _reification atoms_ of `I`.
-4. A mapping `IS` from IRIs into `IR ⋃ IP ⋃ IA`, called the _interpretation_ of IRIs.
+4. A mapping `IS` from IRIs into `IR ⋃ IP`, called the _interpretation_ of IRIs.
 5. A partial mapping `IL` from _literal_ into `IR`, called the _interpretation_ of literals.
-6. A mapping `ID` from descriptors into `IR` called the _interpretation_ of descriptors.
+6. A mapping `ID` from descriptors into `IA` called the _interpretation_ of descriptors.
 7. A mapping `IEXT` from `IP` into `2<sup>IR x IR</sup>`, called the _extension_ of properties.
 
 `A` is a mapping from `BlankNode` to `IR`.
