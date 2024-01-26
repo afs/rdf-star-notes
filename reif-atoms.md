@@ -13,7 +13,7 @@ The problems with RDF 1.1 reification include:
    (De facto, it is omitted.)
 7. If a large graph is split into multiple files of manageable size, the triples can be split across those files (and blank nodes for reification are broken).
 
-The agreed Turtle syntax hides some of these issues (addresses 1, tends away from 3 and 4) but not for N-triples, and not for SPARQL results when thought of as querying a triple table.
+The agreed Turtle syntax hides some of these issues (addresses 1, tends away from 3, 4 and 5) but not for N-triples, and not for SPARQL results when thought of as querying a triple table.
 
 ## General idea
 
