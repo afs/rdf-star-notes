@@ -2,6 +2,8 @@
 
 The presentation here is taken from [an earlier semantics](https://github.com/w3c/rdf-star-wg/wiki/Semantics:-Andy's-proposal).
 
+An alternative approach to the semantics is "[A proposal for RDF-star semantics](https://www.emse.fr/~zimmermann/W3C/RDF-star-semantics/)".
+
 ## Abstract Syntax
 
 ```
